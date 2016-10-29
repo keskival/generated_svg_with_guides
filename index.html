@@ -4,7 +4,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script>
   </head>
   <body>
-    <div style="border: 1px black solid; width: 100px; height: 100px;" id="drawing">
+    <div style="border: 1px black solid; width: 500px; height: 500px;" id="drawing">
     </div>
     <script>
     $(() => {
@@ -13,7 +13,7 @@
               return $("sodipodi\\:guide[inkscape\\:label='" + label + "']").attr('position').split(',');
     	  }
     	  
-          drawing = SVG('svg2').size(100, 100);
+          drawing = SVG('svg2').size(500, 500);
           
           points = getGuide('left2')[0] + ',' + getGuide('top')[1] + ' ' +
               getGuide('left2')[0] + ',' + getGuide('bottom')[1] + ' ' +
