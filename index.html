@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script>
+  </head>
+  <body>
+    <div style="border: 1px black solid; width: 100px; height: 100px;" id="drawing">
+    </div>
+    <script>
+    $(() => {
+      $('#drawing').load('guides.svg', () => {
+    	  function getGuide(label) {
+              return $("sodipodi\\:guide[inkscape\\:label='" + label + "']").attr('position').split(',');
+    	  }
+    	  
+          drawing = SVG('svg2').size(100, 100);
+          
+          points = getGuide('left2')[0] + ',' + getGuide('top')[1] + ' ' +
+              getGuide('left2')[0] + ',' + getGuide('bottom')[1] + ' ' +
+              getGuide('right2')[0] + ',' + getGuide('top')[1] + ' ' +
+              getGuide('right2')[0] + ',' + getGuide('bottom')[1];
+          console.log(points);
+          drawing.polyline(points).fill('none').stroke({ width: 6, color: 'red' });
+      })
+    });
+    </script>
+  </body>
+</html>
+
